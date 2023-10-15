@@ -14,6 +14,8 @@ class Character:
 
         self.max_hp = max_hp
         self.hp = max_hp
+        self.strength = 1
+        self.gold = 0
         self.attack_energy = 0
         self.defense_energy = 0
         self.attack_gen = attack_gen
@@ -28,10 +30,10 @@ class Character:
 
 class Monk(Character):
     def attack(self, target):
-        target.hp -= 1
+        target.hp -= 1 + self.strength
         return super().attack(target)
 
 class Rogue(Character):
     def attack(self, target):
-        target.hp -= 5
+        target.hp -= 5 + self.strength
         return super().attack(target)
